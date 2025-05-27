@@ -8,12 +8,7 @@ import {
   ReactNode,
 } from "react";
 import { useRouter } from "next/navigation";
-
-function getToken(): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(/(^| )token=([^;]+)/);
-  return match ? match[2] : null;
-}
+import Cookies from "js-cookie";
 
 interface AuthContextProps {
   isLoggedIn: boolean;
@@ -28,8 +23,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    const token = getToken();
+    const token = Cookies.get("token");
     setIsLoggedIn(!!token);
+    console.log(token);
   }, []);
 
   const login = () => {
