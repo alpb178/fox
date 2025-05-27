@@ -1,50 +1,59 @@
-Aplicación construida con tecnologías modernas para la gestión de productos, autenticación con JWT y experiencia de usuario optimizada.
+Application built with modern technologies for product management, JWT authentication, and an optimized user experience.
+
+
+#### Technologies
+
+- Next.js 13/14 (App Router + TypeScript)
+
+- Formik + Yup
+
+- Axios 
+
+- JWT + Cookies 
+
+- Styled Components / CSS Modules 
+
+- React.memo, useMemo, useCallback
+
+- Lazy Loading & Code Splitting 
+
+- React Testing Library + Jest 
+
+- Vercel
 
 
 
-Tecnologías
+Fox App Setup
+--------------------------------------
 
-Next.js 13/14 (App Router + TypeScript) – Framework React moderno
+### Step 1
 
-Formik + Yup – Manejo y validación de formularios
+- Make sure to use node >=18.0.0
 
-Axios – Cliente HTTP para consumo de APIs REST
+### Step 2
+- git clone https://github.com/alpb178/fox.git
+- cd fox
 
-JWT + Cookies – Autenticación segura
+### Step 3
 
-Styled Components / CSS Modules – Estilos modernos y aislados
+- Then run `pnpm install`
 
-React.memo, useMemo, useCallback – Optimización de componentes
+### Step 3
 
-Lazy Loading & Code Splitting – Carga eficiente de vistas
+- npm json-server --watch db.json --port 3001
 
-React Testing Library + Jest – Pruebas básicas de componentes
+### Step 4
 
-Vercel – Deploy en la nube con CI/CD automático
+- npm run dev
 
-Instalación
 
-Clona el repositorio:
+#### Testing
 
-git clone https://github.com/alpb178/fox.git
-cd fox
+### Step 1
+- npm run test
 
-Instala las dependencias:
 
-npm install
 
-Inicia un mock server (puedes usar json-server o tu backend):
+##### Deployed on Vercel
 
-npx json-server --watch db.json --port 3001
-
-Inicia el servidor de desarrollo:
-
-npm run dev
-
- Testing
-
-Para correr los tests con Jest y React Testing Library:
-
-npm run test
-
-Test de ejemplo incluido en:__tests__/ProductForm.test.tsx
+https://fox-inky.vercel.app/
