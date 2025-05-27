@@ -2,7 +2,7 @@
 
 import { Container, Title } from "@/helper/utils";
 import dynamic from "next/dynamic";
-import Loader from "../component/Loader/Loader";
+import Loader from "../component/loader/Loader";
 
 const LoginForm = dynamic(() => import("@/features/login/LoginForm"), {
   ssr: false,

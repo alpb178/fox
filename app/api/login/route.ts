@@ -1,11 +1,18 @@
 import { NextResponse } from "next/server";
-import { setToken } from "@/lib/auth";
 
 export async function POST(req: Request) {
   const { email, password } = await req.json();
+
   if (email === "admin@admin.com" && password === "admin") {
-    setToken("token");
-    return NextResponse.json({ ok: true });
+    const response = NextResponse.json({ ok: true });
+
+    response.cookies.set("token", "token", {
+      httpOnly: true,
+      path: "/",
+      maxAge: 60 * 60 * 24,
+    });
+
+    return response;
   }
 
   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

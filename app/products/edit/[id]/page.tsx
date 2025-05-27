@@ -1,6 +1,6 @@
 "use client";
 
-import Loader from "@/app/component/Loader/Loader";
+import Loader from "@/app/component/loader/Loader";
 
 import { Container, Title } from "@/helper/utils";
 import dynamic from "next/dynamic";
