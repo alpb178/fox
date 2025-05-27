@@ -21,7 +21,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   border-radius: 8px;
-  background: var(--primary, #00e38c);
+  background:#00e38c;
   display: flex;
   padding: 14px;
   min-width: 56px;

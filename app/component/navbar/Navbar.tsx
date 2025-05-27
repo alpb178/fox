@@ -1,7 +1,6 @@
 "use client";
 
 import { useAuth } from "@/auth-context";
-import Link from "next/link";
 import styled from "styled-components";
 
 const Nav = styled.nav`
@@ -10,16 +9,7 @@ const Nav = styled.nav`
   padding: 1rem;
   background: "#fffdfd0";
   color: white;
-`;
-
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  width: 100%;
 `;
 
 const LogoutButton = styled.button`
@@ -28,10 +18,6 @@ const LogoutButton = styled.button`
   color: white;
   font-weight: bold;
   cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 export default function Navbar() {
