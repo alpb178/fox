@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Cafetera",
+      "description": "Cafetera italiana",
+      "price": 30,
+      "category": "Electrodomésticos",
+      "condominium": "Condominio Sol"
+    },
+    {
+      "id": "5432",
+      "name": "new",
+      "description": "aa",
+      "price": 2400,
+      "category": "Electrodomésticos",
+      "condominium": "Condominio Sol"
+    },
+    {
+      "id": "5dd3",
+      "name": "new order V1",
+      "description": "aaa",
+      "price": 2,
+      "category": "aaa",
+      "condominium": "aaa"
+    }
+  ]
+}
