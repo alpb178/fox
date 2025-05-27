@@ -21,12 +21,12 @@ const LogoutButton = styled.button`
 `;
 
 export default function Navbar() {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, handleLogout } = useAuth();
 
   return (
     <Nav>
       {isLoggedIn ? (
-        <LogoutButton onClick={logout}>Cerrar sesión</LogoutButton>
+        <LogoutButton onClick={handleLogout}>Cerrar sesión</LogoutButton>
       ) : null}
     </Nav>
   );
