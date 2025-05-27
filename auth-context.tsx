@@ -25,7 +25,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const token = Cookies.get("token");
     setIsLoggedIn(!!token);
-    console.log(token);
   }, []);
 
   const login = () => {
@@ -34,9 +33,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = () => {
-    document.cookie = "token=; Max-Age=0; path=/";
-    setIsLoggedIn(false);
+    Cookies.remove("token");
     router.push("/login");
+    setIsLoggedIn(false);
   };
 
   return (
