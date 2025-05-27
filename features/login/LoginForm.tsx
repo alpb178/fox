@@ -7,10 +7,9 @@ import { useRouter } from "next/navigation";
 import { Button, ErrorText, Form, Input } from "@/helper/utils";
 import { useAuth } from "@/auth-context";
 
-
 export default function LoginForm() {
   const router = useRouter();
-  const { login } = useAuth();
+  const { handleLogin } = useAuth();
 
   const formik = useFormik({
     initialValues: { email: "", password: "" },
@@ -23,8 +22,8 @@ export default function LoginForm() {
     onSubmit: async (values) => {
       try {
         await axios.post("/api/login", values);
-        login();
-        router.push("/products");
+        handleLogin();
+        router.push("/");
       } catch {
         alert("Credenciales incorrectas");
       }
