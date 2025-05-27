@@ -40,7 +40,7 @@ Fox App Setup
 
 ### Step 3
 
-- npm json-server --watch db.json --port 3001
+- npx json-server --watch db.json --port 3001
 
 ### Step 4
 
