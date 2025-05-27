@@ -2,8 +2,16 @@
 
 import styled from "styled-components";
 import Link from "next/link";
-import { Pencil, Trash2 } from "lucide-react";
-import { Button } from "@/helper/utils";
+import { Pencil, Trash2, Plus } from "lucide-react";
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 0.5px solid #898989;
+  border-radius: 10px;
+  width: 90%;
+`;
 
 const TableWrapper = styled.div`
   width: 100%;
@@ -51,7 +59,8 @@ const TopBar = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-bottom: 10px;
+
+  margin-top: 20px;
 
   @media (max-width: 600px) {
     justify-content: center;
@@ -71,10 +80,12 @@ export default function ProductTable({
   handleDelete: (id: number) => void;
 }) {
   return (
-    <>
+    <Container>
       <TopBar>
         <Link href="/products/create">
-          <Button>Crear producto</Button>
+          <IconButton title="Create">
+            <Plus color="#00e38c"  size={30} />
+          </IconButton>
         </Link>
       </TopBar>
 
@@ -98,14 +109,14 @@ export default function ProductTable({
                   <ActionIcons>
                     <Link href={`/products/edit/${p.id}`}>
                       <IconButton title="Editar">
-                        <Pencil size={18} />
+                        <Pencil color="#ffff" size={18} />
                       </IconButton>
                     </Link>
                     <IconButton
                       onClick={() => handleDelete(p.id)}
                       title="Eliminar"
                     >
-                      <Trash2 size={18} />
+                      <Trash2 color="#ffff" size={18} />
                     </IconButton>
                   </ActionIcons>
                 </Td>
@@ -114,6 +125,6 @@ export default function ProductTable({
           </tbody>
         </Table>
       </TableWrapper>
-    </>
+    </Container>
   );
 }

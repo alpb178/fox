@@ -1,11 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button, ErrorText, Form, Input, TextArea } from "@/helper/utils";
+import {
+  Button,
+  ButtonBack,
+  ErrorText,
+  Form,
+  Input,
+  TextArea,
+} from "@/helper/utils";
+import { validationSchema } from "./schemaValidation";
+import styled from "styled-components";
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+`;
 
 export default function ProductForm({ productId }: { productId?: string }) {
   const router = useRouter();
@@ -18,6 +33,21 @@ export default function ProductForm({ productId }: { productId?: string }) {
     condominium: "",
   });
 
+  const handleSubmit = async (values: {
+    name: string;
+    description: string;
+    price: number;
+    category: string;
+    condominium: string;
+  }) => {
+    if (isEdit) {
+      await axios.put(`http://localhost:3001/products/${productId}`, values);
+    } else {
+      await axios.post("http://localhost:3001/products", values);
+    }
+    router.push("/");
+  };
+
   useEffect(() => {
     if (isEdit) {
       axios.get(`http://localhost:3001/products/${productId}`).then((res) => {
@@ -29,21 +59,8 @@ export default function ProductForm({ productId }: { productId?: string }) {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues,
-    validationSchema: Yup.object({
-      name: Yup.string().required("Requerido"),
-      description: Yup.string().required("Requerido"),
-      price: Yup.number().positive("Debe ser positivo").required("Requerido"),
-      category: Yup.string().required("Requerido"),
-      condominium: Yup.string().required("Requerido"),
-    }),
-    onSubmit: async (values) => {
-      if (isEdit) {
-        await axios.put(`http://localhost:3001/products/${productId}`, values);
-      } else {
-        await axios.post("http://localhost:3001/products", values);
-      }
-      router.push("/products");
-    },
+    validationSchema: validationSchema,
+    onSubmit: handleSubmit,
   });
 
   return (
@@ -111,7 +128,12 @@ export default function ProductForm({ productId }: { productId?: string }) {
         value={formik.values.description}
       />
 
-      <Button type="submit">{isEdit ? "Actualizar" : "Crear"}</Button>
+      <Container>
+        <Button type="submit">
+          {isEdit ? "Actualizar" : "Crear"} producto
+        </Button>
+        <ButtonBack onClick={() => router.back()}>Cancelar</ButtonBack>
+      </Container>
     </Form>
   );
 }

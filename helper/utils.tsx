@@ -21,13 +21,20 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   border-radius: 8px;
-  background:#00e38c;
+  background: #00e38c;
   display: flex;
   padding: 14px;
-  min-width: 56px;
-  height: 56px;
   font-size: 14px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  color: black;
+  cursor: pointer;
+`;
+
+export const ButtonBack = styled.button`
+  border-radius: 8px;
+  background: #8e8e8e;
+  display: flex;
+  padding: 14px;
+  font-size: 14px;
   color: black;
   cursor: pointer;
 `;
