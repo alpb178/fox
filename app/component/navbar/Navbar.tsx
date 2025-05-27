@@ -41,9 +41,7 @@ export default function Navbar() {
     <Nav>
       {isLoggedIn ? (
         <LogoutButton onClick={logout}>Cerrar sesión</LogoutButton>
-      ) : (
-        <StyledLink href="/login">Iniciar sesión</StyledLink>
-      )}
+      ) : null}
     </Nav>
   );
 }
