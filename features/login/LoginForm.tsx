@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Button, ErrorText, Form, Input, Title } from "./utils";
+import { Button, ErrorText, Form, Input } from "@/helper/utils";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -29,7 +29,6 @@ export default function LoginForm() {
 
   return (
     <Form onSubmit={formik.handleSubmit}>
-      <Title>Iniciar sesión</Title>
       <Input
         name="email"
         type="email"

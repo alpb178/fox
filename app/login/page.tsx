@@ -1,32 +1,20 @@
 "use client";
 
-import LoginForm from "@/components/login/LoginForm";
-import styled from "styled-components";
-import {
-  space,
-  layout,
-  flexbox,
-  SpaceProps,
-  LayoutProps,
-  FlexboxProps,
-} from "styled-system";
+import { Container, Title } from "@/helper/utils";
+import dynamic from "next/dynamic";
+import Loader from "../component/Loader/Loader";
 
-const CenteredMain = styled.main<SpaceProps & LayoutProps & FlexboxProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-
-  ${space}
-  ${layout}
-  ${flexbox}
-`;
+const LoginForm = dynamic(() => import("@/features/login/LoginForm"), {
+  ssr: false,
+  loading: () => <Loader message="Cargando..." />,
+});
 
 export default function LoginPage() {
+
   return (
-    <CenteredMain>
+    <Container>
+      <Title>Iniciar sesión</Title>
       <LoginForm />
-    </CenteredMain>
+    </Container>
   );
 }
