@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
 
-    if (email === "admin@admin.com" && password === "admin") {
+    if (email === "admin@fox.com" && password === "admin123") {
       const response = NextResponse.json({ ok: true });
 
       response.cookies.set("token", "my-token", {

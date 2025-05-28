@@ -57,3 +57,8 @@ Fox App Setup
 ##### Deployed on Vercel
 
 https://fox-inky.vercel.app/
+
+
+### For use Site
+user: admin@fox.com
+pass: admin123456
